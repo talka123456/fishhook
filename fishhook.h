@@ -27,6 +27,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
+// 设置符号导出状态，
 #if !defined(FISHHOOK_EXPORT)
 #define FISHHOOK_VISIBILITY __attribute__((visibility("hidden")))
 #else
@@ -62,6 +63,7 @@ int rebind_symbols(struct rebinding rebindings[], size_t rebindings_nel);
  * Rebinds as above, but only in the specified image. The header should point
  * to the mach-o header, the slide should be the slide offset. Others as above.
  */
+// 也是冲绑定函数， 但是只针对特定的 image 生效。
 FISHHOOK_VISIBILITY
 int rebind_symbols_image(void *header,
                          intptr_t slide,
